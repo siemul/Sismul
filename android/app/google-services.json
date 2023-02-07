@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "2292987104",
+    "firebase_url": "https://flora-dan-fauna-default-rtdb.firebaseio.com",
+    "project_id": "flora-dan-fauna",
+    "storage_bucket": "flora-dan-fauna.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2292987104:android:9961a5693515b6564b0c85",
+        "android_client_info": {
+          "package_name": "com.example.edugame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2292987104-3s3rvlhi6mdho91365l4miuphmajek42.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz9oSB3fSZ6K-2iLCpNewxq4ZJzomsTA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2292987104-3s3rvlhi6mdho91365l4miuphmajek42.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
