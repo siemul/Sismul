@@ -26,7 +26,9 @@ class _DetailAnimalState extends State<DetailAnimal> {
   }
 
   loadVideoPlayer() {
-    controller = VideoPlayerController.network('assets/videos/video.mp4');
+    controller = VideoPlayerController.network(
+        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4');
+
     controller.addListener(() {
       setState(() {});
     });
@@ -72,7 +74,7 @@ class _DetailAnimalState extends State<DetailAnimal> {
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 550,
+                        height: 1000,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
                           color: MyColors.white(),
@@ -120,7 +122,7 @@ class _DetailAnimalState extends State<DetailAnimal> {
                                   right: 180, top: 30, left: 16),
                               child: SizedBox(
                                 width: MediaQuery.of(context).size.width,
-                                height: 400,
+                                height: 350,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -156,6 +158,59 @@ class _DetailAnimalState extends State<DetailAnimal> {
                                     ),
                                   ],
                                 ),
+                              ),
+                            ),
+                            Container(
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    height: 400,
+                                    child: VideoPlayer(controller),
+                                  ),
+                                  Container(
+                                    //duration of video
+                                    child: Text("Total Duration: " +
+                                        controller.value.duration.toString()),
+                                  ),
+                                  Container(
+                                      width: 700,
+                                      child: VideoProgressIndicator(controller,
+                                          allowScrubbing: true,
+                                          colors: VideoProgressColors(
+                                            backgroundColor: Colors.redAccent,
+                                            playedColor: Colors.green,
+                                            bufferedColor: Colors.purple,
+                                          ))),
+                                  Container(
+                                    width: 700,
+                                    child: Row(
+                                      children: [
+                                        IconButton(
+                                            onPressed: () {
+                                              if (controller.value.isPlaying) {
+                                                controller.pause();
+                                              } else {
+                                                controller.play();
+                                              }
+
+                                              setState(() {});
+                                            },
+                                            icon: Icon(
+                                                controller.value.isPlaying
+                                                    ? Icons.pause
+                                                    : Icons.play_arrow)),
+                                        IconButton(
+                                            onPressed: () {
+                                              controller
+                                                  .seekTo(Duration(seconds: 0));
+
+                                              setState(() {});
+                                            },
+                                            icon: Icon(Icons.stop))
+                                      ],
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
                           ],
